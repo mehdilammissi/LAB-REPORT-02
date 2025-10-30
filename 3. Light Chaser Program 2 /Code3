@@ -1,45 +1,109 @@
-/*This program makes LEDs connected to pins 13, 12, 11, and 10 turn ON and OFF one after another.
-The main function used is digitalWrite(), which controls each pin by sending either a HIGH (1) or LOW (0) signal.
-The variable 'time' determines how long each LED stays ON before the next one lights up.*/
+/*  
 
-int time=100; // Time delay between LED changes in milliseconds
+  This program makes LEDs connected to pins 13, 12, 11, and 10 turn ON and OFF one after another. 
 
-void setup(){
-  // Configure pins 13, 12, 11, and 10 as outputs to control the LEDs
-  pinMode(13,OUTPUT);
-  pinMode(12,OUTPUT);
-  pinMode(11,OUTPUT);
-  pinMode(10,OUTPUT);
-}
+ 
+ 
 
-void loop(){
-  // Turn ON the LED on pin 13 and turn OFF the LED on pin 12
-  digitalWrite(12,0);
-  digitalWrite(13,1);
-  delay(time);
+  The main function used is digitalWrite(), which controls each pin by sending either a HIGH (1) or LOW (0) signal. 
 
-  // Turn ON the LED on pin 12 and turn OFF the LED on pin 13
-  digitalWrite(13,0);
-  digitalWrite(12,1);
-  delay(time);
+ 
+ 
 
-  // Turn ON the LED on pin 11 and turn OFF the LED on pin 12
-  digitalWrite(12,0);
-  digitalWrite(11,1);
-  delay(time);
+  The variable 'time' determines how long each LED stays ON before the next one lights up. 
 
-  // Turn ON the LED on pin 10 and turn OFF the LED on pin 11
-  digitalWrite(11,0);
-  digitalWrite(10,1);
-  delay(time);
+*/ 
 
-  // Move back in reverse order — turn ON the LED on pin 11 and turn OFF the LED on pin 10
-  digitalWrite(11,1);
-  digitalWrite(10,0);
-  delay(time);
+ 
+ 
 
-  // Continue in reverse — turn ON the LED on pin 12 and turn OFF the LED on pin 11
-  digitalWrite(12,1);
-  digitalWrite(11,0);
-  delay(time);
-}
+int time = 100; // Time delay between LED changes in milliseconds (100 ms) 
+
+ 
+ 
+
+void setup() {   
+
+  // Configure pins 13, 12, 11, and 10 as outputs to control the LEDs   
+
+  pinMode(13, OUTPUT);   
+
+  pinMode(12, OUTPUT);   
+
+  pinMode(11, OUTPUT);   
+
+  pinMode(10, OUTPUT);   
+
+}  
+
+ 
+ 
+
+void loop() {   
+
+  // Turn ON the LED on pin 13 and turn OFF the LED on pin 12   
+
+  digitalWrite(12, 0);   
+
+  digitalWrite(13, 1);   
+
+  delay(time); // Pause for the set duration   
+
+ 
+ 
+
+  // Turn ON the LED on pin 12 and turn OFF the LED on pin 13   
+
+  digitalWrite(13, 0);   
+
+  digitalWrite(12, 1);   
+
+  delay(time); // Pause before switching   
+
+ 
+ 
+
+  // Turn ON the LED on pin 11 and turn OFF the LED on pin 12   
+
+  digitalWrite(12, 0);   
+
+  digitalWrite(11, 1);   
+
+  delay(time); // Wait for the time interval   
+
+ 
+ 
+
+  // Turn ON the LED on pin 10 and turn OFF the LED on pin 11   
+
+  digitalWrite(11, 0);   
+
+  digitalWrite(10, 1);   
+
+  delay(time); // Pause for the same time   
+
+ 
+ 
+
+  // Move back in reverse order — turn ON the LED on pin 11 and turn OFF the LED on pin 10   
+
+  digitalWrite(11, 1);   
+
+  digitalWrite(10, 0);   
+
+  delay(time); // Wait before switching again   
+
+ 
+ 
+
+  // Continue in reverse — turn ON the LED on pin 12 and turn OFF the LED on pin 11   
+
+  digitalWrite(12, 1);   
+
+  digitalWrite(11, 0);   
+
+  delay(time); // Wait for the set delay   
+
+} 
+
+ 
