@@ -1,28 +1,68 @@
-/* 
-  Reads a digital input on pin 2, prints the result to the Serial Monitor 
-   
-The main concept is digitalRead(),which read a pin value either to HIGH (1) or LOW (0). 
  
-Pull-up resistor prevent the signal from "floating" in an undefined state, which can happen with inputs like an open switch 
- 
-*/ 
- 
-// digital pin 2 has a pushbutton attached to it. Give it a name: 
-int pushButton = 2; 
-// the setup routine runs once when you press reset: 
-void setup() { 
-  // initialize serial communication at 9600 bits per second: 
-  Serial.begin(9600); 
-  // make the pushbutton's pin an input: 
-  pinMode(pushButton, INPUT); 
-} 
-// the loop routine runs over and over again forever: 
-void loop() { 
-  // read the input pin: 
-  int buttonState = digitalRead(pushButton); 
-  // print out the state of the button: 
-  Serial.print("buttonState =     "); 
-  Serial.println(buttonState); 
-  delay(1);  // delay in between reads for stability 
-} 
+Code: 
+/*  
 
+  Input Pullup Serial 
+
+ 
+ 
+
+  This example demonstrates how to use pinMode(INPUT_PULLUP).  
+
+  It reads a digital input from pin 2 and displays the result in the Serial Monitor. 
+
+ 
+ 
+
+  Unlike pinMode(INPUT), this mode doesn’t need an external pull-down resistor.  
+
+  Instead, an internal 20K-ohm resistor connects the pin to 5V, which keeps it HIGH when the switch is open  
+
+  and LOW when the switch is pressed. 
+
+*/ 
+
+ 
+ 
+
+void setup() {  
+
+  // Start serial communication at 9600 bits per second 
+
+  Serial.begin(9600);   
+
+ 
+ 
+
+  // Configure pin 2 as an input with the internal pull-up resistor enabled 
+
+  pinMode(2, INPUT_PULLUP);  
+
+}  
+
+ 
+ 
+
+void loop() {  
+
+  // Read the pushbutton state and store it in the variable 'sensorVal' 
+
+  int sensorVal = digitalRead(2);   
+
+ 
+ 
+
+  // Display the current state of the button in the Serial Monitor 
+
+  Serial.print("buttonState =     ");  
+
+  Serial.println(sensorVal);   
+
+ 
+ 
+
+  // Note: When using INPUT_PULLUP, logic is reversed. 
+
+  // The pin reads HIGH when the button is open, 
+
+  // and LOW when the button is pressed. 
