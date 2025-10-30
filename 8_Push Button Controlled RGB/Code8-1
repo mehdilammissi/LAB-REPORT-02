@@ -1,1 +1,65 @@
+/*  
 
+  This program reads the state of a pushbutton connected to pin 2. 
+
+ 
+ 
+
+  It uses the Arduino’s internal pull-up resistor, which means: 
+
+    - When the button is NOT pressed → the input reads HIGH (1) 
+
+    - When the button IS pressed → the input reads LOW (0) 
+
+ 
+ 
+
+  The LEDs connected to pins 13, 12, and 11 will turn ON or OFF  
+
+  based on the pushbutton’s current state. 
+
+*/ 
+
+ 
+ 
+
+void setup() {  
+
+  // Set pin 2 as an input and enable the internal pull-up resistor   
+
+  pinMode(2, INPUT_PULLUP);   
+
+ 
+ 
+
+  // Configure pins 13, 12, and 11 as outputs to control the LEDs   
+
+  pinMode(13, OUTPUT);   
+
+  pinMode(12, OUTPUT);   
+
+  pinMode(11, OUTPUT);   
+
+}  
+
+ 
+ 
+
+void loop() {  
+
+  // Read the pushbutton’s current state and store it in 'sensorVal'   
+
+  int sensorVal = digitalRead(2);   
+
+ 
+ 
+
+  // Send the button state to all three LEDs (ON or OFF)   
+
+  digitalWrite(13, sensorVal);   
+
+  digitalWrite(12, sensorVal);   
+
+  digitalWrite(11, sensorVal);   
+
+} 
