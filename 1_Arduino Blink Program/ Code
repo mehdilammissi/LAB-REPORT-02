@@ -1,38 +1,61 @@
-/* 
-  RGB LED Color Mixing
+/*  
 
-  This program controls an RGB LED connected to pins 13 (Red), 11 (Green), 
-  and 12 (Blue) using PWM signals.
+  Blink — Basic LED Example 
 
-  The analogWrite() function adjusts brightness on a scale from 0–255:
-    - 0 = OFF
-    - 255 = Maximum brightness
+ 
+ 
 
-  By combining different brightness levels for each color channel,
-  you can create a wide range of custom colors.
-*/
+  This simple program turns the built-in LED on and off repeatedly. 
 
-int R = 13;  // Red LED pin
-int G = 11;  // Green LED pin
-int B = 12;  // Blue LED pin
+  It’s often used as the very first test to confirm that the Arduino  
+
+  board and programming environment are working properly. 
+
+ 
+ 
+
+  The LED connected to the built-in pin (LED_BUILTIN) will: 
+
+    - Turn ON for one second 
+
+    - Turn OFF for one second 
+
+    - Repeat indefinitely 
+
+*/ 
+
+ 
+ 
+
+// The setup() function runs once when the board is powered on or reset 
 
 void setup() { 
-  // Set each color pin as an output
-  pinMode(R, OUTPUT);  
-  pinMode(G, OUTPUT);  
-  pinMode(B, OUTPUT);  
+
+  // Configure the built-in LED pin as an output 
+
+  pinMode(LED_BUILTIN, OUTPUT); 
+
 } 
 
+ 
+ 
+
+// The loop() function runs continuously after setup() finishes 
+
 void loop() { 
-  // Create a custom color by adjusting each LED’s brightness using PWM (0–255)
-  analogWrite(R, 255);  // Red at full brightness
-  analogWrite(G, 96);   // Green at medium brightness
-  analogWrite(B, 208);  // Blue at high brightness
 
-  // The result is a soft purple/pinkish color created by mixing red, blue, and green light
-}
+  digitalWrite(LED_BUILTIN, HIGH);  // Turn the LED ON (HIGH = 5V) 
+
+  delay(1000);                      // Wait for 1 second 
+
+  digitalWrite(LED_BUILTIN, LOW);   // Turn the LED OFF (LOW = 0V) 
+
+  delay(1000);                      // Wait for 1 second 
+
+} 
 
  
-
  
+ 
+
  
