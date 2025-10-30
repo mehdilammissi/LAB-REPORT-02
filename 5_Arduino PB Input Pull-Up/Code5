@@ -1,33 +1,68 @@
-/* 
- Input Pullup Serial 
+/*  
+
+  This program reads a digital input signal from pin 2 and displays its state in the Serial Monitor. 
+
  
- This example demonstrates the use of pinMode(INPUT_PULLUP). It reads a 
- digital input on pin 2 and prints the results to the serial monitor. 
- Unlike pinMode(INPUT), there is no pull-down resistor necessary. An internal 
- 20K-ohm resistor is pulled to 5V. This configuration causes the input to 
- read HIGH when the switch is open, and LOW when it is closed. 
  
- */ 
-void setup() { 
+
+  The main function used is digitalRead(), which checks whether the pin reads a HIGH (1) or LOW (0) signal. 
+
  
-  //start serial connection 
-  Serial.begin(9600); 
  
-  //configure pin2 as an input and enable the internal pull-up resistor 
-  pinMode(2, INPUT_PULLUP); 
-} 
-void loop() { 
+
+  A pull-up resistor is used to ensure the input stays at a known HIGH state when the switch is open,  
+
+  preventing the signal from “floating” or becoming unstable. 
+
+*/ 
+
  
-  //read the pushbutton value into a variable 
-  int sensorVal = digitalRead(2); 
  
-  //print out the value of the pushbutton 
-  Serial.print("buttonState =     "); 
-  Serial.println(sensorVal); 
+
+// Digital pin 2 is connected to a pushbutton. We'll give it a descriptive name: 
+
+int pushButton = 2; 
+
  
-  // Keep in mind the pullup means the pushbutton's 
-  // logic is inverted. It goes HIGH when it's open, 
-  // and LOW when it's pressed. Turn on pin 13 when the 
-  // button's pressed, and off when it's not: 
-  } 
+ 
+
+// The setup() function runs once when the board starts or is reset: 
+
+void setup() {  
+
+  // Begin serial communication at 9600 bits per second to send data to the Serial Monitor 
+
+  Serial.begin(9600);  
+
+   
+
+  // Set the pushbutton pin as an input 
+
+  pinMode(pushButton, INPUT);  
+
+}  
+
+ 
+ 
+
+// The loop() function runs continuously after setup() 
+
+void loop() {  
+
+  // Read the state of the pushbutton and store it in the variable 'buttonState' 
+
+  int buttonState = digitalRead(pushButton);  
+
+   
+
+  // Print the current state of the button to the Serial Monitor 
+
+  Serial.print("buttonState =     ");  
+
+  Serial.println(buttonState);  
+
+   
+
+  delay(1);  // Short delay between readings for stable results 
+
 } 
